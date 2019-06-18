@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 3) do
 
-  create_table "modules", force: :cascade do |t|
+  create_table "mods", force: :cascade do |t|
     t.string "name"
   end
 
@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 3) do
     t.string "name"
   end
 
-  create_table "studybuddys", force: :cascade do |t|
+  create_table "study_buddies", force: :cascade do |t|
     t.string  "name"
-    t.integer "module_id"
+    t.integer "mod_id"
     t.integer "student_id"
     t.integer "quiz_score"
   end

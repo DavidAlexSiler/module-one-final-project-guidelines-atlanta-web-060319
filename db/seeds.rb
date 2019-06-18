@@ -1,19 +1,21 @@
-require_relative "..models/student.rb"
+Student.destroy_all
+StudyBuddy.destroy_all
+Mod.destroy_all
 
-Student.create(name: "Blake Stoner")
-Student.create(name: "Alex Siler")
-Student.create(name: "Christopher Swofford")
-Student.create(name: "Christopher Kalfas")
-Student.create(name: "Maryam Joseph")
+blake = Student.create(name: "Blake Stoner")
+alex = Student.create(name: "Alex Siler")
+swafford = Student.create(name: "Christopher Swofford")
+chris_k = Student.create(name: "Christopher Kalfas")
+maryam = Student.create(name: "Maryam Joseph")
 
-Module.create(name: "Module 1")
-Module.create(name: "Module 2")
-Module.create(name: "Module 3")
-Module.create(name: "Module 4")
-Module.create(name: "Module 5")
+mod1 = Mod.create(name: "Module 1")
+mod2 = Mod.create(name: "Module 2")
+mod3 = Mod.create(name: "Module 3")
+mod4 = Mod.create(name: "Module 4")
+mod5 = Mod.create(name: "Module 5")
 
-StudyBuddy.create(name: "Jarvis")
-StudyBuddy.create(name: "Friday")
-StudyBuddy.create(name: "Cortona")
-StudyBuddy.create(name: "Jarvis")
-StudyBuddy.create(name: "Hal")
+jarvis = StudyBuddy.create(name: "Jarvis")
+friday = StudyBuddy.create(name: "Friday")
+cortona = StudyBuddy.create(name: "Cortona")
+jarvis = StudyBuddy.create(name: "Jarvis")
+hal = StudyBuddy.create(name: "Hal")

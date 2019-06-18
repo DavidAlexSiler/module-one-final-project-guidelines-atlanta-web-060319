@@ -1,8 +1,8 @@
-class CreateStudybuddys < ActiveRecord::Migration[5.0]
+class CreateStudyBuddies < ActiveRecord::Migration[5.0]
     def change
-        create_table :studybuddys do |t|
+        create_table :study_buddies do |t|
             t.string :name
-            t.integer :module_id
+            t.integer :mod_id
             t.integer :student_id
             t.integer :quiz_score
         end
