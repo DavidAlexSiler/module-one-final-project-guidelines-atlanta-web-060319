@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 3) do
+ActiveRecord::Schema.define(version: 4) do
 
   create_table "mods", force: :cascade do |t|
     t.string "name"
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.string  "subject"
+    t.string  "date"
+    t.text    "content"
+    t.integer "study_buddy_id"
   end
 
   create_table "students", force: :cascade do |t|
