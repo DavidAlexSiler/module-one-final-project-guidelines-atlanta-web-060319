@@ -1,4 +1,4 @@
-class CreateStudyBuddy < ActiveRecord::Base
+class StudyBuddy < ActiveRecord::Base
     belongs_to :student
     belongs_to :module
 end
