@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 4) do
 
   create_table "notes", force: :cascade do |t|
     t.string  "subject"
+    t.string  "title"
     t.string  "date"
     t.text    "content"
     t.integer "study_buddy_id"

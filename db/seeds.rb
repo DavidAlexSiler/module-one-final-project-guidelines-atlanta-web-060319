@@ -25,7 +25,8 @@ cortona = StudyBuddy.create(name: "Cortona", mod_id: mod3.id, student_id: swaffo
 frank = StudyBuddy.create(name: "Frank", mod_id: mod4.id, student_id: chris_k.id)
 hal = StudyBuddy.create(name: "Hal", mod_id: mod5.id, student_id: maryam.id)
 
-tuesday_notes = Note.create(subject: "strings", date: "01/01/2019", content: "Strings are a way to hold any 0-9, A-Z, and !@#$%^&*(", study_buddy_id: jarvis.id)
-wednesday_notes = Note.create(subject: "strings", date: "01/02/2019", content: "Strings are a way to hold any 0-9, A-Z, and !@#$%^&*(", study_buddy_id: jarvis.id)
+monday_notes = Note.create(subject: "arrays", title: "array definition", date: "01/01/2019", content: "Strings are a way to hold any 0-9, A-Z, and !@#$%^&*", study_buddy_id: jarvis.id)
+tuesday_notes = Note.create(subject: "strings", title: "string definition", date: "01/01/2019", content: "Strings are a way to hold any 0-9, A-Z, and !@#$%^*", study_buddy_id: jarvis.id)
 
-
+method_ex1 = Note.create(subject: "string methods", title: ".split definition", date: "01/03/2019", content: ".split seperates your string into smaller parts", study_buddy_id: jarvis.id)
+method_ex2 = Note.create(subject: "array methods", title: ".join definition", date: "01/03/2019", content: ".join brings together parts", study_buddy_id: jarvis.id)
