@@ -4,37 +4,40 @@ class StudyBuddy < ActiveRecord::Base
     has_many :notes
 
 def find_by_subject(subject)
-  the_note = Note.all.select do |n|
-    n.subject == subject
-  end
-  the_note.map do |m|
-    m.title
-  end
+    the_note = Note.all.select do |n|
+        n.subject == subject
+    end
+    the_note.map do |m|
+        m.title
+    end
 end
 
 def find_by_title(title)
-the_notes = Note.all.select do |n|
-  n.title == title
-  end
-  the_notes
+    the_notes = Note.all.select do |n|
+        n.title == title
+    end
+    the_notes
 end
 
 def destroy_by_title(title)
-# the_notes = Note.all.select do |n|
-#   n.title == title
-#   end
-#   the_notes.delete_all
-Note.where(study_buddy_id: self.id).where(title: title).delete_all
+delete_note = Note.all.select do |n|
+    n.title == title
+    end
+    d_id = delete_note.map do |d|
+        d.id
+    end
+Note.destroy(d_id)
 end
 
-  def find_by_date(date)
+def find_by_date(date)
     the_date_note = Note.all.select do |d|
-      d.date == date
+        d.date == date
     end
     the_date_note
-  end
+end
 
-  def create_note(subject, title, date, content)
+def create_note(subject, title, date, content)
     Note.create(subject: subject, title: title, date: date, content: content, study_buddy_id: self.id)
-  end
+end
+
 end
