@@ -18,9 +18,8 @@ ActiveRecord::Schema.define(version: 5) do
   end
 
   create_table "mods", force: :cascade do |t|
-    t.string  "name"
-    t.text    "question"
-    t.integer "answer_id"
+    t.string "name"
+    t.text   "question"
   end
 
   create_table "notes", force: :cascade do |t|
