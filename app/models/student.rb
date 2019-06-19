@@ -1,5 +1,5 @@
 class Student < ActiveRecord::Base
-    belongs_to :module
-    has_many :studybuddies  
+    belongs_to :mod
+    has_many :study_buddies  
 
 end 
