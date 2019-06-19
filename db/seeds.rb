@@ -30,3 +30,8 @@ tuesday_notes = Note.create(subject: "strings", title: "string definition", date
 
 method_ex1 = Note.create(subject: "string methods", title: ".split definition", date: "01/03/2019", content: ".split seperates your string into smaller parts", study_buddy_id: jarvis.id)
 method_ex2 = Note.create(subject: "array methods", title: ".join definition", date: "01/03/2019", content: ".join brings together parts", study_buddy_id: jarvis.id)
+
+#questions
+
+q1 = Mod.create(name: "week 1", question: "What error, if any, will the following code raise? \n 'Blink' + 182", answer_id: answer.id)
+a1 = Answert.create(answer: "Type Error", mod_id: mod.id)
