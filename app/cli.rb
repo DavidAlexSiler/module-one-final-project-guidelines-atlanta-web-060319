@@ -32,16 +32,64 @@ class CLI
         def new_user_setup
             puts "Create Login name: (this will be your username)"
             username = gets.chomp.downcase
-            this_user = Student.create(name: "#{username}")
+            @student = Student.create(name: "#{username}")
             puts "Which Mod are you in?"
             mod_choices = ["Mod 1", "Mod 2", "Mod 3", "Mod 4", "Mod 5"]
+            
             mod_choice = @prompt.enum_select("Select one:", mod_choices)
             if mod_choice == mod_choices[0]
-                this_user_mod = Mod.create(name: "mod 1", question: "what is my name")
-            else
-                puts "ACCESS DENIED\nerror-You only have access to mod 1 currently"
+                puts "Welcome to Mod 1, you are gonna be great!"
+                @mod = Mod.create(name: "Mod 1", question: "What is your name?")
+            else 
+                puts "ACCESS DENIED\nYou currently only have access to Mod 1"
+                mod_choice = @prompt.enum_select("Select one:", mod_choices)
             end
+            `reset`
+            make_buddy
         end
+
+        # def this_user_mod
+        #     make_a_mod = Mod.create(name: "Mod 1", question: "What is your name?")
+        # end
+
+        def make_buddy
+        puts "Now give your StudyBuddy a name:"
+        this_sb_name = gets.chomp
+        @studybuddy = StudyBuddy.create(name: "#{this_sb_name}", mod_id: @mod.id, student_id: @student.id, quiz_score: nil)
+        end
+        # def get_user_id
+        #     this_user_id = this_user.map do |u|
+        #         u.id
+        #     end
+        #     this_user_id
+        # end
+
+        # def get_mod_id
+        #     this_mod_id = mod_choice.map do |e|
+        #         e.id
+        #     end
+        #     this_mod_id
+        # end
+
+        def buddy_setup
+            puts "Now give your StudyBuddy a name:"
+            this_sb_name = gets.chomp
+            binding.pry
+            this_user_study_buddy = StudyBuddy.create(name: "#{this_sb_name}", mod_id: this_user_mod.id, student_id: username.id, quiz_score: nil)
+        end
+
+            # while mod_choice == gets.chomp
+            #     case mod_choice 
+            #     when mod_choice == mod_choices[0]
+            #         #APPLAUSE
+            #         puts "Welcome to Mod 1, you are gonna be great!"
+            #         break
+            #     else puts "ACCESS DENIED\nYou currently only have access to Mod 1"
+            #         mod_choice
+            #     end
+            # end
+            
+        
         
         # if Student.all.includes("this_user.name")
             # puts "Welcome back #{@student.name}! \n\n Loading up your study buddy now."
@@ -100,20 +148,20 @@ class CLI
     end
 
     def main_menu
-        choices = ['Make a note', 'Read old notes', 'Delete a note', 'Log out']
-        choice = @prompt.enum_select("", choices)
+        choices = ['Make a note', 'Read old notes', 'Delete a note', 'Take a Quiz', 'Log Out']
+        choice = @prompt.enum_select("Select one:", choices)
 
-    if choice == choices[0]
-        make_note
-    elsif choice == choices[1]
-        read_note
-    elsif choice == choices[2]
-        delete_note
-    elsif choice == choices[3]
-        puts "Thanks for using your StudyBuddy!.\n\n"
-        sleep 3
-        exit
-        end
+        if choice == choices[0]
+            make_note
+        elsif choice == choices[1]
+            read_note
+        elsif choice == choices[2]
+            delete_note
+        elsif choice == choices[4]
+            puts "Thanks for using your StudyBuddy!.\n\n"
+            sleep 3
+            exit
+            end
     end
 
     def make_note
@@ -125,10 +173,10 @@ class CLI
         date = gets.chomp
         sleep 2
         `reset`
-        puts "#{subject}\n#{title}\n#{date}"
-        puts "Say whatevers on your mind!"
+        puts "subject: #{subject}\ntitle: #{title}\ndate: #{date}"
+        puts "\n\nSay whatevers on your mind!"
         content = gets.chomp
-        Note.create(subject, title, date, content, )
+        Note.create(subject: "#{subject}", title: "#{title}", date: "#{date}", content: "#{content}", study_buddy_id: @studybuddy.id)
     end
 
         
