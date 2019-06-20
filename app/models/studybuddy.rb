@@ -29,6 +29,10 @@ delete_note = Note.all.select do |n|
 Note.destroy(d_id)
 end
 
+    # def assign_buddy
+    #     Student.
+
+
 def find_by_date(date)
     the_date_note = Note.all.select do |d|
         d.date == date
@@ -37,7 +41,7 @@ def find_by_date(date)
 end
 
 def create_note(subject, title, date, content)
-    Note.create(subject: subject, title: title, date: date, content: content, study_buddy_id: self.id)
+    Note.create(subject, title, date, content, studybuddy_id)
 end
 
 end
