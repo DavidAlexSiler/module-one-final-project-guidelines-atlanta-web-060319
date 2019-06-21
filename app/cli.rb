@@ -1,8 +1,5 @@
 require 'pry'
 class CLI
-
-    #``````````````RUN``````````````
-
     def run
         
         @prompt = TTY::Prompt.new
@@ -39,7 +36,7 @@ class CLI
             mod_choice = @prompt.enum_select("Select one:", mod_choices)
             if mod_choice == mod_choices[0]
                 puts "Welcome to Mod 1, you are gonna be great!"
-                @mod = Mod.create(name: "Mod 1", question: "#{plucked_q}")
+                @mod = Mod.create(name: "Mod 1", question: nil)
             else 
                 puts "ACCESS DENIED\nYou currently only have access to Mod 1"
                 mod_choice = @prompt.enum_select("Select one:", mod_choices)
@@ -48,19 +45,16 @@ class CLI
             make_buddy
         end
 
-        def plucked_q
-            Mod.pluck(:question).limit(1)
-        end
+        
 
-        def make_buddy
+    def make_buddy
         puts "Now give your StudyBuddy a name:"
         this_sb_name = gets.chomp
         @studybuddy = StudyBuddy.create(name: "#{this_sb_name}", mod_id: @mod.id, student_id: @student.id, quiz_score: nil)
-        end
+    end
 
     def command
         sleep 1
-
         # LOADING ANIMATION
         `reset`
         puts ("What are we doing today?")
@@ -76,13 +70,15 @@ class CLI
             read_note
         elsif choice == choices[2]
             delete_note
+        elsif choice == choices[3]
+            take_quiz
         elsif choice == choices[4]
             `reset`
             puts "Thanks for using your StudyBuddy!.\n\n"
             #animation
             sleep 3
             exit
-            end
+        end
     end
 
     def make_note
@@ -127,10 +123,24 @@ class CLI
         else
             main_menu
         end
-    
-    
-
     end
-        
+    
+    # def counter
+    #     quiz_score += 1
+    # end
 
+    def take_quiz
+        ids = Mod.pluck(:id)
+        random = Mod.find(ids.sample)
+        random_answer = Answer.all.find {|a| a.mod_id == random.id}
+        binding.pry
+        choices = ['x', "#{random_answer.answer}", 'x', 'x']
+        choice = @prompt.enum_select("#{random.question}", choices)
+        if choice == choices[1]
+            # counter
+            puts "Correct!"
+        else 
+            puts "Sorry #{student}, thats not correct. \n\nThe correct answer was #{random_answer.answer}"
+        end
+    end
 end

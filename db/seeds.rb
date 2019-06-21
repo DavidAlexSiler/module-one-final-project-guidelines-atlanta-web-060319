@@ -12,23 +12,23 @@ swafford = Student.create(name: "Christopher Swofford")
 chris_k = Student.create(name: "Christopher Kalfas")
 maryam = Student.create(name: "Maryam Joseph")
 
-q1 = Mod.create(name: '1', question: "1. How would you select all of the words that start with the letter 'a' from the below array?"
-\n "stuff = ['apple', 'pear', 'face', 'champagne', 'palm tree', 'aardvark', 'pineapple']"
-q2 = Mod.create(name: '1', question: "What method takes a sentence and returns the number of words in the sentence?"
-\n "sentence = 'Hi, isn't this a great and interesting sentence?'")
-q3 = Mod.create(name: '1', question: "What will the following method return?"
-\n "def rude_greeting(name=nil)
+q1 = Mod.create(name: '1', question: "How would you select all of the words that start with the letter 'a' from the below array?
+\nstuff = ['apple', 'pear', 'face', 'champagne', 'palm tree', 'aardvark', 'pineapple']")
+q2 = Mod.create(name: '1', question: "What method takes a sentence and returns the number of words in the sentence?
+\nsentence = 'Hi, isn't this a great and interesting sentence?'")
+q3 = Mod.create(name: '1', question: "What will the following method return?
+\ndef rude_greeting(name=nil)
 \n name | | = 'you jerk'
 \n puts 'Hey there, #\{name}'
 \n        end")
-q4 = Mod.create(name: '1', question: "What error, if any, will the following code raise?"
-\n ""Blink" + 182")
-q5 = Mod.create(name: '1', question: "How would you puts out any and all foods that are delicious?"
-\n "foods = {'pie' => 'delicious', 'broccoli' => 'not delicious',
+q4 = Mod.create(name: '1', question: "What error, if any, will the following code raise?
+\n 'Blink' + 182")
+q5 = Mod.create(name: '1', question: "How would you puts out any and all foods that are delicious?
+\n foods = {'pie' => 'delicious', 'broccoli' => 'not delicious',
 \n 'carrots' => 'not delicious', 'apples' => 'delicious',
 \n 'peanut butter' => 'delicious'}")
-q6 = Mod.create(name: '1', question: "Write a method that puts out a random Archer quote."
-\n  "archer = {
+q6 = Mod.create(name: '1', question: "Write a method that puts out a random Archer quote.
+    \narcher = {
 \n     'name' => 'Sterling Mallory Archer',
 \n     'co-workers'=> ['Lana Kane', 'Cyril Figgis', 'Cheryl Tunt', 'Pam Poovey', 'Dr Krieger'],
 \n     'favorite_drink' => 'Bloody Mary',
